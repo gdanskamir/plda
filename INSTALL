@@ -1,0 +1,40 @@
+For details, please see wiki page:
+    http://code.google.com/p/plda/wiki/PLDAQuickStart
+    http://code.google.com/p/plda/wiki/PLDAManual
+
+Single Processor Version:
+  * tar xvfz plda-3.0.tar.gz
+  * cd plda
+  * make all
+
+Parallel Version:
+  * Install mpich2
+  * tar xvfz plda-3.0.tar.gz
+  * cd plda
+  * make mpi_plda
+
+
+set env:
+    * touch ~/.mpd.conf
+    * cat "MPD_SECRETWORD=anypassword" > ~/.mpd.conf
+
+    * export PATH=.../mpich-3.2/output/bin:${PATH}
+    * export C_INCLUDE_PATH=.../mpich-3.2/output/include/:${C_INCLUDE_PATH}
+    * export CPLUS_INCLUDE_PATH=.../mpich-3.2/output/include/:${CPLUS_INCLUDE_PATH}
+    * export LD_LIBRARY_PATH=.../mpich-3.2/output/lib/:${LD_LIBRARY_PATH}
+    * export LIBRARY_PATH=.../mpich-3.2/output/lib/:${LIBRARY_PATH}
+
+train:
+    * mpiexec -n 6 ./mpi_lda --num_topics 100 --alpha 0.1 --beta 0.01 --training_data_file train_file --model_file ./tmp/plda_model --total_iterations 150
+
+infer:
+    * mpiexec -n 6 ./mpi_lda --num_topics 100 --alpha 0.1 --beta 0.01 --training_data_file infer_file --model_file ./tmp/baike_lda_model --total_iterations 150
+
+get_topic_word:
+    *  python ./view_model.py model ./tmp/model.view_file
+
+
+
+
+
+

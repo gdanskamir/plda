@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 WELCOME TO PLDA+!
 
 Introduction
@@ -53,3 +54,13 @@ Command-line flags
         * alpha and beta should be the same with training.
         * total_iterations: The total number of GibbsSampling iterations for an unseen document. This number does not need to be as much as training, usually tens of iterations is enough.
         * burn_in_iterations: For an unseen document, we will average the document-topic distribution of the last (total_iterations - burn_in_iterations) iterations as the final document-topic distribution.
+=======
+Welcome to PLDA.
+
+PLDA is free software. Please see the file COPYING for details.
+For building and installation instructions please see the INSTALL file.
+For others, please see wiki page:
+    http://code.google.com/p/plda/wiki/PLDAQuickStart
+    http://code.google.com/p/plda/wiki/PLDAManual
+
+>>>>>>> 79f5aa7cee08ab2fb532300faef554d896e6206c
